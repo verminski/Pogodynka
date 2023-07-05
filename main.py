@@ -1,16 +1,5 @@
 from modules import get_location, get_forecast_date, WeatherForecast, check_rain
 
-# location = input("Enter the location (city name): ")
-# latitude, longitude = get_location(location)
-#
-# forecast_date = input("Enter the date of the forecast (YYYY-MM-DD): ")
-# forecast_date = get_forecast_date(forecast_date)
-#
-# weather_forecast = WeatherForecast()
-# forecast_data = weather_forecast.fetch_forecast(location, latitude, longitude, forecast_date)
-#
-# check_rain(forecast_data)
-
 option = input("Which command would you like to execute? (list, new, manual, saved, cities, exit): ")
 while option != "exit":
     weather_forecast = WeatherForecast()

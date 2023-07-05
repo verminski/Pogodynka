@@ -28,12 +28,6 @@ class WeatherForecast:
 
     def items(self):
 
-        # result = []
-        # for city in self.weather_data:
-        #     for date in self.weather_data[city]:
-        #         result.append((city, date, self.weather_data[city][date]))
-        # return result
-
         return ((city, date, self.weather_data[city][date]) for city in self.weather_data for date in self.weather_data[city])
 
     def fetch_forecast(self, city, latitude, longitude, forecast_date):
@@ -90,33 +84,3 @@ def check_rain(forecast_data):
         print("I have no idea.")
     else:
         print(f"It will rain: {forecast_data} mm.")
-
-# def get_forecast(latitude, longitude, location, forecast_date):
-#     try:
-#         with open("weather_data.txt", "r") as file:
-#             weather_data = file.read()
-#             weather_data = literal_eval(weather_data)
-#     except FileNotFoundError:
-#         weather_data = {}
-#
-#     if forecast_date in weather_data:
-#         if location in weather_data[forecast_date]:
-#             print(f"Prognoza dla {location} na dzień {forecast_date} jest zczytana z pliku.")
-#             return weather_data[forecast_date][location]
-#
-#     url =f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=precipitation_sum&timezone=Europe%2FLondon&start_date={forecast_date}&end_date={forecast_date}"
-#     forecast_response = requests.get(url)
-#
-#     if forecast_response.status_code == 200:
-#         print("Prognoza pobrana z Open-Meteo")
-#         weather_data[forecast_date] = {}
-#         weather_data[forecast_date][location] = forecast_response.json()
-#     else:
-#         print("Problem z pobraniem prognozy.")
-#         exit()
-#
-#     with open("weather_data.txt", "w") as file:
-#         file.write(str(weather_data))
-#
-#     return forecast_response.json()
-
